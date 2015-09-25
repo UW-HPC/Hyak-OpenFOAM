@@ -1,0 +1,10 @@
+To make a module file for OpenFOAM, I got the idea from:
+http://www.cfd-online.com/Forums/openfoam/87163-how-add-openfoam-module-environment.html
+
+To prepare the contents of a module file run printenv before and after sourcing OpenFOAM, piping output to two different files. A diff on these combined with sed gives a 90% 
+working OpenFOAM-module file. Then clean up the remaining 10% by hand.  You will need replace some things like hardcoded usernames, and I noticed some superfluous paths.
+
+	printenv > env_0
+	source /opt/OpenFOAM/OpenFOAM-1.7.x/etc/bashrc
+	printenv > env_1
+	diff env_?|sed -ne 's/> \(.*\)=\(.*\)/setenv \1\t"\2"/gp' >> moduleFile
