@@ -90,7 +90,7 @@ export WM_COMPILE_OPTION=Opt
 #               | MPI | QSMPI | SGIMPI
 #export WM_MPLIB=SYSTEMOPENMPI
 export WM_MPLIB=INTELMPI
-export export MPI_ROOT=$I_MPI_ROOT
+export MPI_ROOT=$I_MPI_ROOT
 
 
 #- Operating System:
